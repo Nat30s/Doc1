@@ -1,0 +1,848 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternative Medicine HTML Template</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS RESET & GLOBAL STYLES */
+        :root {
+            --primary-green: #8bc34a;
+            --primary-blue: #03a9f4;
+            --dark-blue: #2c3e50;
+            --light-gray: #f4f4f4;
+            --text-color: #555;
+            --heading-color: #333;
+            --white-color: #fff;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--heading-color);
+            font-weight: 600;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--white-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-blue {
+            background-color: var(--primary-blue);
+        }
+
+        .btn-green {
+            background-color: var(--primary-green);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--primary-green);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        /* HEADER & HERO SECTION */
+        .header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2120&q=80') no-repeat center center/cover;
+            height: 100vh;
+            color: var(--white-color);
+            position: relative;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--white-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--white-color);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            padding: 100px 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-images {
+            position: relative;
+        }
+
+        .about-images img {
+            width: 60%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .about-images img:first-child {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-images img:last-child {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(0, -50%);
+        }
+
+        /* HEALTHY LIFE SECTION */
+        .healthy-life {
+            background-color: var(--light-gray);
+        }
+
+        .healthy-life-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .life-card {
+            background: var(--white-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .life-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .life-card-content {
+            padding: 20px;
+        }
+
+        .life-card-content h3 {
+            margin-bottom: 10px;
+        }
+        
+        .healthy-life-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        /* WEBINAR CTA SECTION */
+        .webinar-cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1594313016519-640e47a507c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            color: var(--white-color);
+            text-align: center;
+        }
+        
+        .webinar-cta h2 {
+            color: var(--white-color);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* FEATURES SECTION */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .feature-item .icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* AWESOME CTA SECTION */
+        .awesome-cta {
+            background-color: var(--light-gray);
+        }
+        
+        .awesome-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            background: var(--white-color);
+            padding: 50px;
+            border-radius: 10px;
+        }
+
+        .video-placeholder {
+            background: #333 url('https://i.ytimg.com/vi/LXb3EKWsInQ/maxresdefault.jpg') no-repeat center center/cover; /* Placeholder image */
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .play-button {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        /* TESTIMONIALS SECTION */
+        .testimonials {
+            position: relative;
+            background-color: #f7fdf3;
+            padding: 150px 0;
+            margin-top: -70px;
+            z-index: 0;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f7fdf3;
+            transform: skewY(-5deg);
+            z-index: -1;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: var(--white-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 0;
+        }
+
+        .author-info p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        /* TREATMENTS SECTION */
+        .treatments {
+            padding-bottom: 40px;
+        }
+        .treatments-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .treatment-item {
+            text-align: center;
+        }
+        
+        .treatment-item .icon {
+            font-size: 2rem;
+            color: var(--primary-green);
+        }
+        
+        .treatment-item p {
+            font-weight: 500;
+            color: var(--heading-color);
+            margin-top: 10px;
+        }
+        
+        .treatments-cta {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        /* FAQ SECTION */
+        .faq-section {
+            padding-bottom: 100px;
+        }
+        .faq-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .faq-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 15px;
+        }
+
+        .accordion-header {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 15px 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--heading-color);
+        }
+        
+        .accordion-header::after {
+            content: '\f078'; /* Font Awesome down arrow */
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-header::after {
+            transform: rotate(180deg);
+        }
+
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-body p {
+            padding: 0 0 15px 0;
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: var(--dark-blue);
+            color: #ccc;
+            padding-top: 80px;
+            padding-bottom: 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        .footer-col h4 {
+            color: var(--white-color);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .footer-col p, .footer-col li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+        }
+
+
+        /* RESPONSIVE STYLES */
+        @media (max-width: 992px) {
+            h2 { font-size: 2rem; }
+            .about-content, .awesome-content, .faq-content { grid-template-columns: 1fr; }
+            .about-images { margin-top: 40px; text-align: center; }
+            .faq-image { margin-bottom: 40px; }
+            .healthy-life-grid { grid-template-columns: 1fr 1fr; }
+            .features-grid, .treatments-grid { grid-template-columns: 1fr 1fr; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .hero-content h1 { font-size: 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 0;
+                background: var(--dark-blue);
+                height: 100vh;
+                width: 60%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: right 0.3s ease-in;
+            }
+            .nav-links.nav-active {
+                right: 0;
+            }
+            .nav-links li {
+                margin: 20px 0;
+            }
+            .hamburger {
+                display: block;
+                z-index: 1001;
+            }
+            .about-images img:last-child { position: relative; transform: none; left: 0; top: 20px;}
+        }
+
+        @media (max-width: 576px) {
+            .healthy-life-grid { grid-template-columns: 1fr; }
+            .features-grid, .treatments-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .container { padding: 0 1rem; }
+            h2 { font-size: 1.8rem; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .btn { padding: 10px 22px; }
+            .awesome-content { padding: 30px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar container">
+            <div class="logo">My Logo</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+        <div class="hero-content">
+            <h1>Alternative Medicine</h1>
+            <p>Embrace a Natural Path to Wellness</p>
+            <a href="#" class="btn btn-blue">Learn More</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-section">
+            <div class="container about-content">
+                <div class="about-text">
+                    <h2>A Place of Healing, Peace, and Wellness</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+                <div class="about-images">
+                    <img src="https://images.unsplash.com/photo-1598555763521-2a02c6785843?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Healing Image 1">
+                    <img src="https://images.unsplash.com/photo-1542848247-5e9d9a23d331?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Healing Image 2">
+                </div>
+            </div>
+        </section>
+
+        <section class="healthy-life">
+            <div class="container">
+                <p class="section-subtitle">Live better</p>
+                <h2>Live a Healthy Life</h2>
+                <div class="healthy-life-grid">
+                    <div class="life-card">
+                        <img src="https://images.unsplash.com/photo-1540420773420-226c2de38014?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Acupuncture">
+                        <div class="life-card-content">
+                            <h3>Acupuncture</h3>
+                            <p>Natural healing for pain relief and balance.</p>
+                        </div>
+                    </div>
+                    <div class="life-card">
+                        <img src="https://images.unsplash.com/photo-1599536341291-03d35a513c3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Herbal Therapy">
+                        <div class="life-card-content">
+                            <h3>Herbal Therapy</h3>
+                            <p>Customized botanicals for holistic wellness.</p>
+                        </div>
+                    </div>
+                    <div class="life-card">
+                        <img src="https://images.unsplash.com/photo-1512438248247-f082a5276324?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Massage">
+                        <div class="life-card-content">
+                            <h3>Massage</h3>
+                            <p>Therapeutic touch to relax and rejuvenate.</p>
+                        </div>
+                    </div>
+                    <div class="life-card">
+                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Meditation">
+                        <div class="life-card-content">
+                            <h3>Meditation</h3>
+                            <p>Find inner peace and clarity of mind.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="healthy-life-cta">
+                     <a href="#" class="btn btn-blue">View All Therapies</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="webinar-cta">
+            <div class="container">
+                <h2>Webinar on Chinese Dietary Therapy and Eastern Nutrition</h2>
+                <a href="#" class="btn btn-green" style="margin-top: 20px;">Register Now</a>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <p class="section-subtitle">Our Method</p>
+                <h2>We Teach Your Body To Treat Itself</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="icon"><i class="fas fa-heartbeat"></i></div>
+                        <h3>Personalized Plan</h3>
+                        <p>Every plan is tailored to your unique body and needs.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon"><i class="fas fa-leaf"></i></div>
+                        <h3>Natural Methods</h3>
+                        <p>We use only time-tested, natural remedies and techniques.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon"><i class="fas fa-brain"></i></div>
+                        <h3>Mind & Body</h3>
+                        <p>Our approach addresses both mental and physical well-being.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon"><i class="fas fa-user-md"></i></div>
+                        <h3>Expert Guidance</h3>
+                        <p>Receive support from certified and experienced practitioners.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="awesome-cta">
+            <div class="container awesome-content">
+                <div class="video-placeholder">
+                    <div class="play-button"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="awesome-text">
+                    <h2>We Are Awesome!</h2>
+                    <p>Discover how our unique approach has changed lives. Watch our story and see the passion behind our practice.</p>
+                    <p><strong>Save 25% on your first consultation.</strong></p>
+                    <a href="#" class="btn btn-blue">Book Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <p class="section-subtitle">Testimonials</p>
+                <h2>Thousands of Happy Patients</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p>"This was a life-changing experience. I haven't felt this good in years. The personalized care and attention to detail were exceptional."</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Patient 1">
+                            <div class="author-info">
+                                <h4>Sarah L.</h4>
+                                <p>Marketing Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"I was skeptical at first, but the results speak for themselves. My chronic pain is gone, and I have more energy than ever. Highly recommended."</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Patient 2">
+                            <div class="author-info">
+                                <h4>Mark T.</h4>
+                                <p>Software Engineer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"The team is incredibly knowledgeable and compassionate. They created a supportive environment that made my healing journey so much easier."</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Patient 3">
+                            <div class="author-info">
+                                <h4>Jessica P.</h4>
+                                <p>Graphic Designer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="treatments">
+            <div class="container">
+                <h2>Diseases That Can Be Treated</h2>
+                <div class="treatments-grid">
+                    <div class="treatment-item"><i class="fas fa-head-side-cough icon"></i><p>Allergies</p></div>
+                    <div class="treatment-item"><i class="fas fa-joint icon"></i><p>Arthritis</p></div>
+                    <div class="treatment-item"><i class="fas fa-heart icon"></i><p>Hypertension</p></div>
+                    <div class="treatment-item"><i class="fas fa-moon icon"></i><p>Insomnia</p></div>
+                    <div class="treatment-item"><i class="fas fa-female icon"></i><p>Menopause</p></div>
+                    <div class="treatment-item"><i class="fas fa-child icon"></i><p>Infertility</p></div>
+                    <div class="treatment-item"><i class="fas fa-smoking-ban icon"></i><p>Addiction</p></div>
+                    <div class="treatment-item"><i class="fas fa-weight icon"></i><p>Obesity</p></div>
+                </div>
+                <div class="treatments-cta">
+                    <a href="#" class="btn btn-blue">Learn More</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="faq-section">
+            <div class="container">
+                <p class="section-subtitle">Help</p>
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-content">
+                    <div class="faq-image">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="People asking questions">
+                    </div>
+                    <div class="faq-accordion">
+                        <div class="accordion-item">
+                            <button class="accordion-header">What is alternative medicine?</button>
+                            <div class="accordion-body">
+                                <p>Alternative medicine refers to any practice that aims to achieve the healing effects of medicine but which lacks biological plausibility and is untested, untestable or proven ineffective.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item active">
+                            <button class="accordion-header">Is it safe for my family?</button>
+                            <div class="accordion-body" style="max-height: 200px;">
+                                <p>When practiced by a trained professional, most alternative therapies are very safe. We conduct a thorough intake to ensure our treatments are appropriate for you and your family's health conditions.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header">How do I get started?</button>
+                            <div class="accordion-body">
+                                <p>Getting started is easy! Simply click the "Book Now" button on our site to schedule your initial consultation. We'll discuss your health goals and create a personalized plan for you.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>My Logo</h4>
+                    <p>A holistic approach to wellness. We believe in the power of nature to heal and restore balance to your life.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#">Therapies</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Wellness St, Serenity City</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@mylogo.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 My Logo. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // JavaScript for Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+            // Animate hamburger icon
+            hamburger.classList.toggle('toggle');
+        });
+
+        // JavaScript for FAQ Accordion
+        const accordionItems = document.querySelectorAll('.accordion-item');
+
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            const body = item.querySelector('.accordion-body');
+            
+            header.addEventListener('click', () => {
+                // Close all other items
+                accordionItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.accordion-body').style.maxHeight = 0;
+                    }
+                });
+
+                // Toggle the clicked item
+                item.classList.toggle('active');
+                if (item.classList.contains('active')) {
+                    body.style.maxHeight = body.scrollHeight + 'px';
+                } else {
+                    body.style.maxHeight = 0;
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
